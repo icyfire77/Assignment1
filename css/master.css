@@ -1,0 +1,16 @@
+li.navbar {
+  font-family: garamond, serif;
+  font-size: 50px;
+  display: inline;
+  border:2px solid black;
+  border-radius: 5px;
+  padding: 20px;
+}
+
+body {
+  background-color:lightblue;
+}
+
+p {
+  color:red;
+}
