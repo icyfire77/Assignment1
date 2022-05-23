@@ -1,5 +1,31 @@
+/* for centreing elements */
 .center {
   text-align: center;
+}
+
+/* align image to right */
+img.rightImage {
+
+}
+
+/* for website master logo design */
+.header {
+  position: absolute;
+  font-size: 5vh;
+  font-family: monospace;
+  color: darkslategrey;
+
+  top: 20px;
+  left: 20px;
+
+  transform: rotate(-20deg);
+}
+
+.subheader {
+  font-size: 420%;
+
+  color: darkred;
+  font-family: "Brush Script MT", "cursive";
 }
 
 .bar-background {
@@ -16,10 +42,17 @@
   /* justify-content: flex-start; */
   align-items: center;
 
-  /*border:1px solid black; */
+  /*border:1px solid black;
+   experimenting with border aesthetics */
 }
 
+/* change colour of navbar selection upon hover */
 a:hover {
+  background-color: slateblue;
+  color: aquamarine;
+}
+/* use hover colour for active window by default */
+li a.active {
   background-color: slateblue;
   color: aquamarine;
 }
@@ -33,18 +66,14 @@ li a {
   text-decoration: none;
 }
 
+
 li.navbar {
   font-family: garamond, serif;
   font-size: min(calc(25% + 20px), 40px);
   display: inline-block;
 
-  /* border:1px solid black;
-  border-radius: 0;
-  border-left: 1px solid;
-  border-right: 1px solid; */
-
   /*padding: 2%; */
-  padding-top: 5px;
+  padding-top: 5px; /* may no longer be needed */
   padding-bottom: 5px;
 
   margin-left: 10px;
@@ -55,7 +84,7 @@ li.navbar {
 }
 
 a.navblock {
-  /*text-align: center;*/
+  /*text-align: center; now in the hyperlink, no longer needed */
 }
 
 body {
