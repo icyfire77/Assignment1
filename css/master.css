@@ -1,18 +1,33 @@
-/* for centreing elements */
+/* for centering elements */
 .center {
   text-align: center;
 }
 
+/* dynamic text used in website paragraphs */
+p.generalText {
+  font-size: 2vw;
+  font-family: "Courier New", "monospace";
+  border: 2px solid darkred; /* darkorchid looks pretty nice too */
+
+  margin: 2.5%;
+  padding: 10px;
+
+  background-color: bisque;
+}
+
 /* align image to right */
 img.rightImage {
+  max-width: 50%;
+  max-height: auto;
 
+  float: right;
 }
 
 /* for website master logo design */
 .header {
   position: absolute;
   font-size: 5vh;
-  font-family: monospace;
+  font-family: "Courier New", "monospace";
   color: darkslategrey;
 
   top: 20px;
@@ -26,6 +41,7 @@ img.rightImage {
 
   color: darkred;
   font-family: "Brush Script MT", "cursive";
+  text-shadow: 2px 2px black;
 }
 
 .bar-background {
@@ -42,8 +58,8 @@ img.rightImage {
   /* justify-content: flex-start; */
   align-items: center;
 
-  /*border:1px solid black;
-   experimenting with border aesthetics */
+  border:2px solid darkred;
+   /* experimenting with border aesthetics */
 }
 
 /* change colour of navbar selection upon hover */
@@ -52,7 +68,7 @@ a:hover {
   color: aquamarine;
 }
 /* use hover colour for active window by default */
-li a.active {
+#active {
   background-color: slateblue;
   color: aquamarine;
 }
@@ -89,8 +105,4 @@ a.navblock {
 
 body {
   background-color:lightblue;
-}
-
-p {
-  /*color:red;*/
 }

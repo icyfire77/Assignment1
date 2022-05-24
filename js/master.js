@@ -4,7 +4,7 @@ let dynamicSize = 20; //refactor later if possible
 // https://stackoverflow.com/questions/2170923/whats-the-easiest-way-to-call-a-function-every-5-seconds-in-jquery
 function dynamicHeader() {
 
-  /*
+  /* code previously used to fetch size. No longer used because of dynamic sizing based on window
   const header = document.querySelector('.header');
   const fontSize = getComputedStyle(header).getPropertyValue("font-size");
   console.log(fontSize);
@@ -27,15 +27,17 @@ function dynamicHeader() {
   }
 
   document.getElementsByClassName("header")[0].style.fontSize=dynamicSize + "vh";
-  console.log(dynamicSize);
+  // console.log(dynamicSize); used to debug sizing
 }
 
-let dynamicInterval = setInterval(dynamicHeader, 40);
+let dynamicInterval = setInterval(dynamicHeader, 40); // sets interval for the funny title element
 
+// saves recipe to the list of recipes
 function saveRecipe() {
 
 }
 
+// clears all form inputs
 function clearInput() {
 
 }
