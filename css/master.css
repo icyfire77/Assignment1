@@ -24,9 +24,21 @@
 
   background-color: bisque;
 }
+.prev {
+  position: absolute;
+  left: 0px;
+}
+.next {
+  position: absolute;
+  right: 0px;
+}
 
 #recipePart {
   margin: 2.5%;
+}
+
+.slideshow {
+  font-size: 10vw;
 }
 
 /* div with a nice background to match the rest of the website theme */
@@ -135,6 +147,24 @@ li.navbar {
   position: relative;
   /*top: 40%;*/
   /*margin: 0px auto;*/
+}
+
+button {
+  border-radius: 10px;
+  font-family: "american typewriter", "serif";
+  font-size: max(2.5vw, 10px);
+  margin: 1%;
+  color: seashell;
+  padding: 2%;
+}
+
+button.valid {
+  background-color: lightgreen;
+  border-color: lightgreen;
+}
+button.ohno {
+  background-color: orangered;
+  border-color: orangered;
 }
 
 a.navblock {

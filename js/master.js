@@ -7,6 +7,7 @@ let initialRecipe = JSON.stringify(
   "directions": "Preheat skillet over medium heat. Generously butter one side of a slice of bread. Place bread butter-side-down onto skillet bottom and add 1 slice of cheese. Butter a second slice of bread on one side and place butter-side-up on top of sandwich. Grill until lightly browned and flip over; continue grilling until cheese is melted. Repeat with remaining 2 slices of bread, butter and slice of cheese."
 });
 let recipeArray = [initialRecipe];
+let activeSlide = 0;
 
 // example recipe sourced from https://www.allrecipes.com/recipe/23891/grilled-cheese-sandwich/
 
@@ -56,8 +57,18 @@ function refreshRecipes() {
 function addRecipeToList(recipe) {
   let parsedRecipe = JSON.parse(recipe);
 
+  // https://developer.mozilla.org/en-US/docs/Web/API/Document/createElement
+  let newUL = document.createElement("ul");
+  newUL.setAttribute("id", parsedRecipe.title);
+  newUL.classList.add("generalText");
+  newUL.classList.add("recipeSection");
+
+  const nextParagraph = document.getElementById("afterRecipe");
+  var parentDiv = document.getElementById("recipeHolder");
+  parentDiv.insertBefore(newUL, nextParagraph);
+
   for (let step in parsedRecipe) {
-    let recipes = document.getElementById("recipes");
+    let recipes = document.getElementById(parsedRecipe.title);
     let recipeElement = document.createElement("li");
 
     recipeElement.setAttribute("id", "recipePart")
@@ -84,17 +95,19 @@ function saveRecipe() {
 
   for (const elem of recipeElems) {
     noEmptyFields = (noEmptyFields && (elem.value !== ""));
-    console.log((noEmptyFields && (elem.value !== "")));
-    console.log((noEmptyFields && (elem.value === "")));
   }
 
   if (noEmptyFields) {
-    console.log(noEmptyFields);
-    addRecipeToList(stringNewRecipe);
     recipeArray.push(stringNewRecipe);
+    // console.log(stringNewRecipe);
+    addRecipeToList(stringNewRecipe);
+    // onsole.log(recipeArray);
   }
 
+  // required updates to displays
   clearInput();
+  refreshSlides();
+  updateNumbering();
 }
 
 // clears all form inputs
@@ -106,13 +119,66 @@ function clearInput() {
   }
 }
 
-function deleteAll(recipeArray) {
+function deleteAll() {
   recipeArray = [];
-  let recipes = document.getElementById("recipes");
-  recipes.innerHTML = "";
+  const recipes = document.querySelectorAll('.recipeSection');
+  recipes.forEach(recipe => {
+  recipe.remove();
+  });
+  updateNumbering();
 }
 
 function getWidth() { // currently not used, but may come in handy later
   let width = window.innerWidth;
   return width;
+}
+
+// loosely based on https://www.w3schools.com/howto/howto_js_quotes_slideshow.asp
+function refreshSlides() {
+  let selectedSlide = recipeArray[activeSlide];
+  let slides = document.getElementsByClassName("recipeSection");
+  // console.log(selectedSlide);
+  for (let elem of slides) {
+    /*
+    console.log(elem.id);
+    console.log(JSON.parse(recipeArray[activeSlide]).title);
+    */
+    if (elem.id === JSON.parse(recipeArray[activeSlide]).title) {
+      showSlide(elem);
+    } else {
+      hideSlide(elem);
+    }
+  }
+
+  updateNumbering();
+}
+
+function showSlide(elem) {
+  elem.removeAttribute("hidden");
+}
+
+function hideSlide(elem) {
+  elem.setAttribute("hidden", "hidden");
+}
+
+function plusSlides(n) {
+  activeSlide += n;
+  if (activeSlide < 0) {
+    activeSlide = 0;
+  }
+  if (activeSlide >= recipeArray.length) {
+    activeSlide = recipeArray.length - 1;
+  }
+  // console.log(activeSlide);
+
+  refreshSlides();
+}
+
+function updateNumbering() {
+  if (recipeArray.length > 0) {
+    document.getElementById("numbering").innerHTML = "Recipe " +
+    (activeSlide + 1).toString() + " of " + recipeArray.length.toString();
+  } else {
+    document.getElementById("numbering").innerHTML = "No recipes! Why not add one?"
+  }
 }

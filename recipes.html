@@ -19,11 +19,19 @@
         <li class="navbar"><a href=additional.html class="navblock">Additional</a></li>
       </div>
 
-      <div class=styledDiv>
+      <div class="styledDiv" id=recipeHolder>
         <h2 class="subsubheader center">The Web's Cookbook</h2>
+        <!-- previously used to hold recipes (replaced by slideshow)
         <ul id="recipes" class=generalText>
         </ul>
-        <p class="generalText">Add your own recipe below:</p>
+        -->
+        <div class="center">
+          <p id="numbering" class="generalText">Recipe 1 of 1</p>
+          <a class="slideshow prev" onclick="plusSlides(-1)">&#10094;</a>
+          <a class="slideshow next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+
+        <p id="afterRecipe" class="generalText">Add your own recipe below:</p>
         <div class="center">
           <textarea class="boxes" name="name"
            rows="1" cols="80"
@@ -39,9 +47,10 @@
            rows="12" cols="80"
            placeholder="Add your recipe instructions here"></textarea>
         </div>
+
         <div class="center" id="smallPad">
-          <button type="button" name="button" onclick="saveRecipe()">Save Recipe</button>
-          <button type="button" name="button" onclick="clearInput()">Clear Input</button>
+          <button type="button" name="button" class="valid" onclick="saveRecipe()">Save Recipe</button>
+          <button type="button" name="button" class="ohno" onclick="clearInput()">Clear Input</button>
         </div>
         <button type="button" class="ohno" name="button" onclick="deleteAll()">Delete All</button>
       </div>
