@@ -14,7 +14,7 @@
 }
 
 /* dynamic text used in website paragraphs */
-p.generalText {
+.generalText {
   font-size: 2vw;
   font-family: "Courier New", "monospace";
   border: 2px solid darkred; /* darkorchid looks pretty nice too */
@@ -25,6 +25,10 @@ p.generalText {
   background-color: bisque;
 }
 
+#recipePart {
+  margin: 2.5%;
+}
+
 /* div with a nice background to match the rest of the website theme */
 div.styledDiv {
   border: 2px solid darkred; /* darkorchid looks pretty nice too */
@@ -32,7 +36,7 @@ div.styledDiv {
   margin: 2.5%;
   padding: 10px;
 
-  background-color: plum;
+  background-color: lightskyblue;
 }
 
 /* align image to right */
@@ -67,6 +71,15 @@ img.rightImage {
 
   margin-left: 28%;
   margin-right: 28%;
+}
+
+.subsubheader {
+  font-size: 3vw;
+
+  color: darkred;
+  font-family: "Brush Script MT", "cursive";
+  text-shadow: 2px 2px black;
+  text-decoration: underline;
 }
 
 .bar-background {
