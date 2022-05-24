@@ -6,23 +6,40 @@
       <link rel="stylesheet" type="text/css" href="css/master.css"/>
       <script src="js/master.js" charset="utf-8"></script>
     </head>
-    <body>
-      <div>
-        <p>Add your own recipe here:</p>
-        <div class="">
-          <textarea name="name"
+    <body onload="refreshRecipes()">
+      <!-- just 1 header for this subpage
+      (the dynamic text could get annoying for some) -->
+      <h1 class="subheader center">Let's Get Cooking</h1>
+
+      <!-- STICKY TOP NAVBAR -->
+      <div class="bar-background">
+        <li class="navbar"><a href=website.html class="navblock">Home</a></li>
+        <li class="navbar"><a href=about.html class="navblock">About</a></li>
+        <li class="navbar"><a id="active" href=recipes.html class="navblock">Recipes</a></li>
+        <li class="navbar"><a href=additional.html class="navblock">Additional</a></li>
+      </div>
+
+      <div class=styledDiv>
+        <p class="generalText">Add your own recipe below:</p>
+        <div class="center">
+          <textarea class="boxes" name="name"
            rows="1" cols="80"
            placeholder="Add your recipe title here!"></textarea>
         </div>
-        <div class="">
-          <textarea name="name"
+        <div class="center">
+          <textarea class="boxes" name="name"
            rows="8" cols="80"
+           placeholder="Add your recipe ingredients here"></textarea>
+        </div>
+        <div class="center">
+          <textarea class="boxes" name="name"
+           rows="12" cols="80"
            placeholder="Add your recipe instructions here"></textarea>
         </div>
-      </div>
-      <div class="">
-        <button type="button" name="button" onclick="saveRecipe()">Save Recipe</button>
-        <button type="button" name="button" onclick="clearInput()">Clear Input</button>
+        <div class="center" id="smallPad">
+          <button type="button" name="button" onclick="saveRecipe()">Save Recipe</button>
+          <button type="button" name="button" onclick="clearInput()">Clear Input</button>
+        </div>
       </div>
     </body>
   </html>

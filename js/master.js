@@ -12,25 +12,32 @@ function dynamicHeader() {
   let dynamicSize = parseInt(fontSize.substring(0, fontSize.length-2));
   */
 
-  if (dynamicSize >= 5) {
+  if (dynamicSize >= 2.7) {
     growing = false;
-    dynamicSize = 4.9;
-  } else if (dynamicSize <= 3) {
+    dynamicSize = 2.6;
+  } else if (dynamicSize <= 1.7) {
     growing = true;
-    dynamicSize = 3.1;
+    dynamicSize = 1.8;
   }
 
   if (growing === true) {
-    dynamicSize += 0.1;
+    dynamicSize += 0.05;
   } else {
-    dynamicSize -= 0.1;
+    dynamicSize -= 0.05;
   }
 
-  document.getElementsByClassName("header")[0].style.fontSize=dynamicSize + "vh";
+  document.getElementsByClassName("header")[0].style.fontSize=dynamicSize + "vw";
   // console.log(dynamicSize); used to debug sizing
 }
 
-let dynamicInterval = setInterval(dynamicHeader, 40); // sets interval for the funny title element
+if (document.title === "Home") {
+  let dynamicInterval = setInterval(dynamicHeader, 40); // sets interval for the funny title element
+}
+
+// takes
+function refreshRecipes() {
+
+}
 
 // saves recipe to the list of recipes
 function saveRecipe() {
@@ -39,7 +46,11 @@ function saveRecipe() {
 
 // clears all form inputs
 function clearInput() {
+  let recipeElems = document.getElementsByClassName("boxes");
 
+  for (const elem of recipeElems) {
+    elem.value = "";
+  }
 }
 
 function getWidth() { // currently not used, but may come in handy later

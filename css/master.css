@@ -3,6 +3,16 @@
   text-align: center;
 }
 
+/* generic, adds slight separation */
+#smallPad {
+  padding-bottom: 10px;
+}
+
+/* still generic, mainly for testing purposes. Beeeeg empty space */
+#bigPad {
+  padding-bottom: 20000px;
+}
+
 /* dynamic text used in website paragraphs */
 p.generalText {
   font-size: 2vw;
@@ -13,6 +23,16 @@ p.generalText {
   padding: 10px;
 
   background-color: bisque;
+}
+
+/* div with a nice background to match the rest of the website theme */
+div.styledDiv {
+  border: 2px solid darkred; /* darkorchid looks pretty nice too */
+
+  margin: 2.5%;
+  padding: 10px;
+
+  background-color: plum;
 }
 
 /* align image to right */
@@ -26,7 +46,7 @@ img.rightImage {
 /* for website master logo design */
 .header {
   position: absolute;
-  font-size: 5vh;
+  font-size: 2.7vw;
   font-family: "Courier New", "monospace";
   color: darkslategrey;
 
@@ -37,11 +57,16 @@ img.rightImage {
 }
 
 .subheader {
-  font-size: 420%;
+  font-size: 5vw;
 
   color: darkred;
   font-family: "Brush Script MT", "cursive";
   text-shadow: 2px 2px black;
+  background-color: darksalmon;
+  border: 2px solid darkred;
+
+  margin-left: 28%;
+  margin-right: 28%;
 }
 
 .bar-background {
@@ -85,7 +110,7 @@ li a {
 
 li.navbar {
   font-family: garamond, serif;
-  font-size: min(calc(25% + 20px), 40px);
+  font-size: min(calc(25% + 20px), 30px);
   display: inline-block;
 
   /*padding: 2%; */
